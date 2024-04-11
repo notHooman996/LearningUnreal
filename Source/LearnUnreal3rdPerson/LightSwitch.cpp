@@ -34,9 +34,6 @@ void ALightSwitch::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	if (touching) {
-
-		// TODO - get the light mesh
-
 		if (lightSwitchState == ELightSwitchState::OFF) {
 			// turn on light 
 			LightMesh->SetVisibility(true);
@@ -54,6 +51,5 @@ void ALightSwitch::Tick(float DeltaTime)
 void ALightSwitch::Use_Implementation()
 {
 	touching = true; 
-	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, FString::Printf(TEXT("light switch")));
 }
 
