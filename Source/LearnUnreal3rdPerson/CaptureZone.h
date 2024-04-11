@@ -5,10 +5,16 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Components/BoxComponent.h"
+#include "UseableInterface.h"
 #include "CaptureZone.generated.h"
 
+UENUM(BlueprintType)
+enum class EFlagState : uint8 {
+	UP,DOWN,
+};
+
 UCLASS() // macro 
-class LEARNUNREAL3RDPERSON_API ACaptureZone : public AActor
+class LEARNUNREAL3RDPERSON_API ACaptureZone : public AActor, public IUseableInterface
 {
 	GENERATED_BODY() // macro 
 	
@@ -46,10 +52,13 @@ protected:
 
 	bool capturing;
 
-	//EFlagState flagState;
+	EFlagState flagState;
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	// implement interface Useable method use by using suffix 
+	// syntax for suffix method: [method name]_Implementation() 
+	virtual void Use_Implementation() override; 
 };
