@@ -13,7 +13,7 @@ class LEARNUNREAL3RDPERSON_API AMyCharacter : public ACharacter
 
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character | Health")
-	int health = 100; 
+	float health = 1.0f; 
 	
 	// Sets default values for this character's properties
 	AMyCharacter();
